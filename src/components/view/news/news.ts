@@ -1,17 +1,17 @@
 import './news.css';
 
-interface NewsItem {
+export interface NewsItem {
     author: string;
     source: { name: string };
     publishedAt: string;
     title: string;
     description: string;
-    url: URL;
-    urlToImage: URL;
+    url: URL | string;
+    urlToImage: URL | string;
 }
 
 class News {
-    public draw(data: NewsItem[]) {
+    public draw(data: Readonly<NewsItem[]>) {
         const news = data.length >= 10 ? data.filter((_item, idx: number) => idx < 10) : data;
 
         const fragment = document.createDocumentFragment() as DocumentFragment;
