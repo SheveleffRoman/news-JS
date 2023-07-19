@@ -1,24 +1,24 @@
 import './news.css';
 
-export interface NewsItem {
-    author: string;
-    source: { name: string };
-    publishedAt: string;
-    title: string;
-    description: string;
-    url: URL | string;
-    urlToImage: URL | string;
+export interface NewsItem<T> {
+    readonly author: T;
+    readonly source: { name: T };
+    readonly publishedAt: T;
+    readonly title: T;
+    readonly description: T;
+    readonly url: URL | T;
+    readonly urlToImage: URL | T;
 }
 
 class News {
-    public draw(data: Readonly<NewsItem[]>) {
+    public draw(data: NewsItem<string>[]) {
         const news = data.length >= 10 ? data.filter((_item, idx: number) => idx < 10) : data;
 
         const fragment = document.createDocumentFragment() as DocumentFragment;
         const newsItemTemp = document.querySelector('#newsItemTemp') as HTMLTemplateElement;
         const newsDiv = document.querySelector('.news') as HTMLElement;
 
-        news.forEach((item: NewsItem, idx: number) => {
+        news.forEach((item: NewsItem<string>, idx: number) => {
             const newsClone = newsItemTemp.content.cloneNode(true) as HTMLElement;
 
             const newsItem = newsClone.querySelector('.news__item') as HTMLElement;
