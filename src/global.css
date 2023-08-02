@@ -2,7 +2,17 @@ body {
     color: #fff;
     background: #17181c;
     font-family: sans-serif;
+    height: 100%; /* footer */
+    max-width: 1920px;
+    margin: 0 auto; /* footer */
+    display: flex; /* footer */
+    flex-direction: column; /* footer */
 }
+
+html {
+    height: 100%; /* footer */
+    margin: 0 auto; /* footer */
+  }
 
 header {
     padding: 10px 30px;
@@ -13,11 +23,17 @@ header h1 {
     font-weight: 800;
 }
 
+main {
+    flex: 1; /* footer */
+}
+
 footer {
-    height: 100px;
+    height: 60px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    background-color: #fff;
+    flex-shrink: 0; /* footer */
 }
 footer .copyright {
     font-size: 14px;
@@ -32,4 +48,7 @@ footer .copyright a:hover {
 }
 footer .copyright:before {
     content: '©';
+}
+footer .footer_img {
+    width: 5rem;
 }
